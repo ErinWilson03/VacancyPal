@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Assignment</title>
+    <title>VacancyPal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="//unpkg.com/alpinejs" defer></script>
     <style type="text/tailwindcss">
@@ -70,8 +70,9 @@
 
             <!-- application title -->
             <x-ui.nav.title class="flex items-center">
-                <x-ui.svg book size="lg" />
-                <span>Assignment</span>
+                {{-- TODO: Fix the image? --}}
+            <img src="./resources/graphics/logos/ffffffWhite.png" alt="VacancyPal Logo" class="h-10 w-auto">
+            <span>VacancyPal</span>
             </x-ui.nav.title>
 
             <!-- page links -->
