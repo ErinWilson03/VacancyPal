@@ -15,7 +15,7 @@ return new class extends Migration {
     {
         Schema::create('vacancies', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('company_id')->constrained();
+            $table->foreignId('company_id')->constrained()->onDelete('cascade');
             // Vacancy Info
             $table->string('title', 100);
             $table->string('description', 500)->nullable();

@@ -2,25 +2,21 @@
 
 namespace Database\Seeders;
 
-use App\Models\Company;
-use App\Models\Vacancy;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Vacancy;
+use App\Models\Company;
 use App\Enums\VacancyTypeEnum;
 use App\Enums\IndustryEnum;
 
 class VacancySeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
-    public function run(): void
+    public function run()
     {
-        // Fetching Companies
+        // Assuming $companies are already loaded from the database
         $companies = Company::all();
-         
-        // Vacancies
-        $v1 = Vacancy::create([
+
+        // Insert predefined vacancies
+        Vacancy::create([
             "title" => "Senior Accounts Manager",
             'company_id' => $companies->firstWhere('company_name', "Foster's Finance")->id,
             "description" => "Manage and oversee accounts for top clients.",
@@ -33,7 +29,7 @@ class VacancySeeder extends Seeder
             "logo" => "logos/techradar_senior_accounts_manager.png"
         ]);
 
-        $v2 = Vacancy::create([
+        Vacancy::create([
             "title" => "Cybersecurity Analyst",
             'company_id' => $companies->firstWhere('company_name', 'Security Sloth')->id,
             "description" => "Monitor and prevent security breaches across systems.",
@@ -46,7 +42,7 @@ class VacancySeeder extends Seeder
             "logo" => "logos/securitysloth_cybersecurity_analyst.png"
         ]);
 
-        $v3 = Vacancy::create([
+        Vacancy::create([
             "title" => "Product Design Intern",
             'company_id' => $companies->firstWhere('company_name', 'AtlasWare')->id,
             "description" => "Assist in designing new products for the tech market.",
@@ -59,7 +55,7 @@ class VacancySeeder extends Seeder
             "logo" => "logos/atlasware_product_design_intern.png"
         ]);
 
-        $v4 = Vacancy::create([
+        Vacancy::create([
             "title" => "Software Engineer",
             'company_id' => $companies->firstWhere('company_name', 'Tech Radar')->id,
             "description" => "Develop scalable software solutions for enterprise clients.",
