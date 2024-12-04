@@ -71,8 +71,8 @@
             <!-- application title -->
             <x-ui.nav.title class="flex items-center">
                 {{-- TODO: Fix the image? --}}
-            <img src="./resources/graphics/logos/ffffffWhite.png" alt="VacancyPal Logo" class="h-10 w-auto">
-            <span>VacancyPal</span>
+                <img src={{ asset('storage/logos/ffffffWhite.png') }} alt="VacancyPal Logo" class="h-10 w-auto">
+                <span>VacancyPal</span>
             </x-ui.nav.title>
 
             <!-- page links -->

@@ -3,6 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Enums\VacancyTypeEnum;
+use App\Enums\IndustryEnum;
 
 return new class extends Migration {
     /**
@@ -20,8 +22,8 @@ return new class extends Migration {
             $table->text('skills_required')->nullable();
             $table->date('application_open_date')->nullable();
             $table->date('application_close_date')->nullable();
-            $table->string('industry', 100)->nullable();
-            $table->enum('vacancy_type', ['full-time', 'part-time', 'contract', 'temporary', 'internship'])->nullable();
+            $table->enum('industry', array_column(IndustryEnum::cases(), 'value'))->nullable();
+            $table->enum('vacancy_type', array_column(VacancyTypeEnum::cases(), 'value'))->nullable();
             $table->string('reference_number')->unique();
             $table->string('logo')->nullable(); // Store the file path of the logo
             

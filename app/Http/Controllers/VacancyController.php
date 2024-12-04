@@ -9,6 +9,7 @@ use App\Models\Application;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\Rules\File;
+use \Illuminate\Support\Facades\Log; 
 
 class VacancyController
 {
@@ -33,26 +34,27 @@ class VacancyController
     // Display all vacancies
     public function index(Request $request)
     {
-        if (!Gate::allows('viewAny', Vacancy::class)) {
+        // Causing problems right now 
 
-            return redirect()->route('login')->with('info', 'Please Login to view Vacancies');
-        }
+        // if (!Gate::allows('viewAny', Vacancy::class)) {
 
-        // TBC extract query paramerters  $size, $sort, $direction from the request
+        //     return redirect()->route('login')->with('info', 'Please Login to view Vacancies');
+        // }
+
         $size = $request->input('size', 10);
         $sort = $request->input('sort', 'id');
         $direction = $request->input('direction', 'asc');
 
         $search = $request->input('search', null);
 
-        // TBC implement pagination and sorting
-        $vacancies = Vacancy::with(['Company'])
+        // // TBC implement pagination and sorting
+        $vacancies = Vacancy::with(['company']) // captial C ?
             ->search($search)
             ->sortable($sort, $direction)
             ->paginate($size)
             ->withQueryString();
 
-        return view('Vacancies.index', ['Vacancies' => $vacancies, 'search' => $search]);
+        return view('vacancies.index', ['vacancies' => $vacancies, 'search' => $search]);
     }
 
     // show the form to create a new vacancy
