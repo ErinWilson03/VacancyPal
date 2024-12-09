@@ -70,7 +70,6 @@
 
             <!-- application title -->
             <x-ui.nav.title class="flex items-center">
-                {{-- TODO: Fix the image? --}}
                 <img src={{ asset('logos/White.png') }} alt="VacancyPal Logo" class="h-10 w-auto">
                 <span>VacancyPal</span>
             </x-ui.nav.title>
