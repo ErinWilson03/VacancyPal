@@ -57,3 +57,6 @@ Route::middleware('guest')->group(function () {
     Route::get('/vacancies/{id}/edit', [VacancyController::class, 'edit'])->name('vacancies.edit');
     Route::put('/vacancies/{id}', [VacancyController::class, 'update'])->name('vacancies.update');
     Route::delete('/vacancies/{id}', [VacancyController::class, 'destroy'])->name('vacancies.destroy');
+
+
+    // TODO: Add company route

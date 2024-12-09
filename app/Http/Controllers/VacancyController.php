@@ -115,12 +115,13 @@ class VacancyController
     // display a specific vacancy
         public function show(int $id)
     {
-        if (!Gate::allows('view', Vacancy::class)) {
-            return redirect()->route('login')->with('info', 'Please Login to view a Vacancy');
-        }
+        //TODO: fix policy to allow admin and accountHolders to view vacancies
+        // if (!Gate::allows('view', Vacancy::class)) {
+        //     return redirect()->route('login')->with('info', 'Please Login to view a Vacancy');
+        // }
 
         $vacancy = Vacancy::findOrFail($id);
-        return view('Vacancies.show', ['Vacancy' => $vacancy]);
+        return view('vacancies.show', ['vacancy' => $vacancy]);
     }
 
     // show form for editing a specific vacancy

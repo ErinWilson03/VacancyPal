@@ -15,6 +15,7 @@
     </x-ui.header>
 
 
+    {{-- TODO: fix search functionality --}}
     @include('vacancies._search')
 
    
