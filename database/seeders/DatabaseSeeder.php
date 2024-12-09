@@ -38,10 +38,14 @@ class DatabaseSeeder extends Seeder
             'email' => 'company@mail.com',
             'password' => Hash::make('password'),
             'role' => Role::AUTHOR
-        ]);
+        ]);        
 
-        // call other seeders here
+        // call the already created company seeder, then create vacancies
+        $this->call(CompanySeeder::class);
+        $this->call(VacancySeeder::class);
+        // create some more random companies and vacancies
         Company::factory(5)->create();
         Vacancy::factory(10)->create();
+
     }
 }

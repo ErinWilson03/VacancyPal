@@ -26,7 +26,7 @@ class VacancySeeder extends Seeder
             "industry" => IndustryEnum::Finance->value,
             "vacancy_type" => VacancyTypeEnum::FullTime->value,
             "reference_number" => "REF12345",
-            "logo" => "logos/techradar_senior_accounts_manager.png"
+            "logo" => "public\company_logos\specific_logos\fosters_finance.png"
         ]);
 
         Vacancy::create([
@@ -39,7 +39,7 @@ class VacancySeeder extends Seeder
             "industry" => IndustryEnum::InformationSecurity->value,
             "vacancy_type" => VacancyTypeEnum::FullTime->value,
             "reference_number" => "REF56789",
-            "logo" => "logos/securitysloth_cybersecurity_analyst.png"
+            "logo" => "public\company_logos\specific_logos\security_sloth.png"
         ]);
 
         Vacancy::create([
@@ -52,7 +52,7 @@ class VacancySeeder extends Seeder
             "industry" => IndustryEnum::Technology->value,
             "vacancy_type" => VacancyTypeEnum::Internship->value,
             "reference_number" => "REF67890",
-            "logo" => "logos/atlasware_product_design_intern.png"
+            "logo" => "public\company_logos\specific_logos\atlasware.png"
         ]);
 
         Vacancy::create([
@@ -65,7 +65,7 @@ class VacancySeeder extends Seeder
             "industry" => IndustryEnum::Technology->value,
             "vacancy_type" => VacancyTypeEnum::FullTime->value,
             "reference_number" => "REF89012",
-            "logo" => "logos/techradar_software_engineer.png"
+            "logo" => "public\company_logos\specific_logos\tech_radar.png"
         ]);
     }
 }

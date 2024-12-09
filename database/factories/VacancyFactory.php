@@ -27,9 +27,9 @@ class VacancyFactory extends Factory
     public function definition(): array
     {
         // Randomly selecting a logo and assigning its path
-        $logos = File::allFiles(storage_path('app/public/company_logos'));
+        $logos = File::allFiles(storage_path('app\public\company_logos'));
         $randomLogo = $this->faker->randomElement($logos);
-        $logoPath = 'company_logos/' . basename($randomLogo);
+        $logoPath = 'app\public\company_logos/' . basename($randomLogo);
 
         return [
             'title' => $this->faker->jobTitle(),

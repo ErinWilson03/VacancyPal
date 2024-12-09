@@ -22,11 +22,6 @@
     <div class="container mx-auto px-4 py-8">
         <h1 class="text-4xl font-bold text-mid_blue-500 mb-6">Job Vacancies</h1>
 
-        <!-- Search bar -->
-        <div class="mb-8">
-            <input type="text" placeholder="Search vacancies..." class="px-4 py-2 w-full border-2 border-mid_blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-mid_blue-500 text-mid_blue-700">
-        </div>
-
         <!-- Vacancy Listings -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach($vacancies as $vacancy)
