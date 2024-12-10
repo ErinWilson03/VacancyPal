@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('email')->unique()->nullable();
             $table->string('phone_number')->nullable();
             $table->string('website')->nullable();
+            $table->string('logo')->nullable(); // Store the file path of the logo
             $table->timestamps();
         });
     }

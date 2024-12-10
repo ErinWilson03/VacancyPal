@@ -14,7 +14,16 @@ class CompanyController extends Controller
             'email' => 'nullable|email|unique:companies,email',
             'phone_number' => 'nullable|string',
             'website' => 'nullable|url',
+            'logo' => ['nullable', 'file', 'mimes:png,jpg', 'max:1024'], // File validation for the logo image
         ]);
+
+           // TODO: take this out if on reflection its not needed
+           //Handle the logo file if present
+        //    if ($request->hasFile('logo')) {
+        //     $file = $request->file('logo');
+        //     $logoPath = $file->store('vacancies/logos', 'public'); // Store the file in the public disk
+        //     $data['logo'] = $logoPath; // Save the file path
+        // }
 
         $company = Company::create($validated);
 

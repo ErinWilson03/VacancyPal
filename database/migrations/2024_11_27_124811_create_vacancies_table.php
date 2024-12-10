@@ -25,7 +25,6 @@ return new class extends Migration {
             $table->enum('industry', array_column(IndustryEnum::cases(), 'value'))->nullable();
             $table->enum('vacancy_type', array_column(VacancyTypeEnum::cases(), 'value'))->nullable();
             $table->string('reference_number')->unique();
-            $table->string('logo')->nullable(); // Store the file path of the logo
             
             $table->timestamps();
         });

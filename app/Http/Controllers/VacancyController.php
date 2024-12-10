@@ -88,18 +88,10 @@ class VacancyController
             'application_close_date' => ['required', 'date'],
             'industry' => ['required', 'string', 'max:100'],
             'vacancy_type' => ['nullable', 'in:full-time,part-time,contract,temporary,internship'], // Vacancy types
-            'logo' => ['nullable', 'file', 'mimes:png,jpg', 'max:1024'], // File validation for the logo image
         ], [
             'company_id.required' => 'The Company field is required.',
             'company_id.exists' => 'The selected company does not exist.',
         ]);
-    
-        // Handle the logo file if present
-        if ($request->hasFile('logo')) {
-            $file = $request->file('logo');
-            $logoPath = $file->store('vacancies/logos', 'public'); // Store the file in the public disk
-            $data['logo'] = $logoPath; // Save the file path
-        }
     
         // Generate the reference number (e.g., 'VAC1234')
         $referenceNumber = $this->generateReferenceNumber(); // Use the helper function from earlier

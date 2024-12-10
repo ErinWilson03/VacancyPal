@@ -8,7 +8,6 @@ use App\Enums\VacancyTypeEnum;
 use App\Enums\IndustryEnum;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\File;
 
 class VacancyFactory extends Factory
 {
@@ -26,11 +25,6 @@ class VacancyFactory extends Factory
      */
     public function definition(): array
     {
-        // Randomly selecting a logo and assigning its path
-        $logos = File::allFiles(storage_path('app\public\company_logos'));
-        $randomLogo = $this->faker->randomElement($logos);
-        $logoPath = 'app\public\company_logos/' . basename($randomLogo);
-
         return [
             'title' => $this->faker->jobTitle(),
             'company_id' => Company::factory(),
@@ -41,7 +35,6 @@ class VacancyFactory extends Factory
             'industry' => $this->faker->randomElement(IndustryEnum::cases())->value,
             'vacancy_type' => $this->faker->randomElement(VacancyTypeEnum::cases())->value,
             'reference_number' => strtoupper(Str::random(10)),
-            'logo' => $logoPath,
         ];
     }
 }
