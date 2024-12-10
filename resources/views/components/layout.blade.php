@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>VacancyPal</title>
+    <!-- Link to Vite's compiled CSS -->
+    @vite('resources/css/app.css')
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Vite compiled JS -->
+    @vite('resources/js/app.js')
     <script src="//unpkg.com/alpinejs" defer></script>
     <style type="text/tailwindcss">
         @layer components {

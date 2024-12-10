@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             'role' => Role::ADMIN
         ]);
 
+        // add other default users here
         User::create([
             'name' => 'Guest',
             'email' => 'guest@mail.com',
@@ -42,5 +43,9 @@ class DatabaseSeeder extends Seeder
         // call the already created company seeder, then create vacancies
         $this->call(CompanySeeder::class);
         $this->call(VacancySeeder::class);
+        // create some more random companies and vacancies
+        Company::factory(5)->create();
+        Vacancy::factory(10)->create();
+
     }
 }

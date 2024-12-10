@@ -21,7 +21,7 @@ class CompanySeeder extends Seeder
             'email' => 'contact@techradar.com',
             'phone_number' => '+1-800-555-TECH',
             'website' => 'https://www.techradar.com',
-            "logo" => "public\company_logos\specific_logos\tech_radar.png"
+            "logo" => 'logos\tech_radar.png'
         ]);
 
         $c2 = Company::create([
@@ -29,7 +29,7 @@ class CompanySeeder extends Seeder
             'email' => 'support@securitysloth.com',
             'phone_number' => '+1-800-555-SAFE',
             'website' => 'https://www.securitysloth.com',
-            "logo" => "public\company_logos\specific_logos\securoty_sloth.png"
+            "logo" => "logos\securoty_sloth.png"
         ]);
 
         $c3 = Company::create([
@@ -37,7 +37,7 @@ class CompanySeeder extends Seeder
             'email' => 'info@atlasware.com',
             'phone_number' => '+1-800-555-GEAR',
             'website' => 'https://www.atlasware.com',
-            "logo" => "public\company_logos\specific_logos\atlasware.png"
+            "logo" => "logos\atlasware.png"
         ]);
 
         $c4 = Company::create([
@@ -45,7 +45,7 @@ class CompanySeeder extends Seeder
             'email' => 'finance@fosters.com',
             'phone_number' => '+1-800-555-MONEY',
             'website' => 'https://www.fostersfinance.com',
-            "logo" => "public\company_logos\specific_logos\fosters_finance.png"
+            "logo" => 'logos\fosters_finance.png'
         ]);
 
         Company::factory(10)->create();

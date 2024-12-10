@@ -2,6 +2,7 @@
 
 @php
     $classes = match ($variant) {
+        'midBlue' => 'text-sm font-medium px-2.5 py-0.5 rounded border border-midBlue-400   bg-midBlue-100   text-midBlue-800',
         'blue' => 'text-sm font-medium px-2.5 py-0.5 rounded border border-blue-400   bg-blue-100   text-blue-800',
         'gray' => 'text-sm font-medium px-2.5 py-0.5 rounded border border-gray-500   bg-gray-100   text-gray-800',
         'light' => 'text-sm font-medium px-2.5 py-0.5 rounded border border-gray-100   bg-gray-50    text-gray-800',

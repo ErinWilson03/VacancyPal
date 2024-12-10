@@ -21,7 +21,7 @@ export default {
           800: '#ffffff',
           900: '#ffffff',
         },
-        grey: {
+        gray: {
           DEFAULT: '#c0ccde',
           100: '#1d2736',
           200: '#394d6c',
@@ -33,7 +33,7 @@ export default {
           800: '#e6eaf2',
           900: '#f2f5f8',
         },
-        light_blue: {
+        lightBlue: {
           DEFAULT: '#8199bc',
           100: '#161e29',
           200: '#2c3b53',
@@ -45,7 +45,7 @@ export default {
           800: '#ccd6e4',
           900: '#e6eaf2',
         },
-        mid_blue: {
+        midBlue: {
           DEFAULT: '#42669b',
           100: '#0d141f',
           200: '#1a283d',
@@ -57,7 +57,7 @@ export default {
           800: '#aec0dc',
           900: '#d6e0ee',
         },
-        dark_blue: {
+        darkBlue: {
           DEFAULT: '#023379',
           100: '#000a18',
           200: '#011530',

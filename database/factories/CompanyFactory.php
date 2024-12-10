@@ -17,17 +17,24 @@ class CompanyFactory extends Factory
      */
     public function definition(): array
     {
-        // Randomly selecting a logo and assigning its path
-        $logos = File::allFiles(storage_path('app\public\company_logos'));
+        // Set the path to the folder containing logos inside the public directory
+        $logosDirectory = public_path('company_logos');
+
+        // Get all files from the company_logos folder
+        $logos = File::allFiles($logosDirectory);
+
+        // Select a random logo file
         $randomLogo = $this->faker->randomElement($logos);
-        $logoPath = 'app\public\company_logos/' . basename($randomLogo);
+
+        // Generate the relative path for the logo
+        $logoPath = 'company_logos/' . basename($randomLogo);
+
         return [
             'company_name' => $this->faker->company(),
             'email' => $this->faker->unique()->safeEmail(),
             'phone_number' => $this->faker->phoneNumber(),
             'website' => $this->faker->domainName(),
-            'logo' => $logoPath,
+            'logo' => $logoPath, // This will store the relative path
         ];
-
     }
 }

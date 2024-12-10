@@ -1,6 +1,10 @@
 @props(['variant' => 'blue'])
 @php 
 $classes = match($variant) {
+   'mid-blue' => "py-1.5 px-4 text-sm transition-colors font-medium rounded-lg text-white bg-midBlue-700 border border-midBlue-800 hover:bg-midBlue-800 hover:text-white disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-midBlue-900 active:bg-midBlue-900",
+   'dark-blue' => "py-1.5 px-4 text-sm transition-colors font-medium rounded-lg text-white bg-darkBlue-700 border border-darkBlue-800 hover:bg-darkBlue-800 hover:text-white disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-darkBlue-900 active:bg-darkBlue-900",
+   'light-blue' => "py-1.5 px-4 text-sm transition-colors font-medium rounded-lg text-white bg-lightBlue-700 border border-lightBlue-800 hover:bg-lightBlue-800 hover:text-white disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-lightBlue-900 active:bg-lightBlue-900",
+ 
    'blue'   => "py-1.5 px-4 text-sm transition-colors font-medium rounded-lg text-gray-100 bg-blue-700   border border-blue-800   hover:bg-blue-900   hover:text-white disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-blue-900   active:bg-blue-800",
    'red'    => "py-1.5 px-4 text-sm transition-colors font-medium rounded-lg text-gray-100 bg-red-700    border border-red-800    hover:bg-red-800    hover:text-white disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-red-900    active:bg-red-800",
    'green'  => "py-1.5 px-4 text-sm transition-colors font-medium rounded-lg text-gray-100 bg-green-700  border border-green-800  hover:bg-green-800  hover:text-white disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-green-900  active:bg-green-900",
@@ -22,10 +26,7 @@ $classes = match($variant) {
 
 @php 
 $classes = match($variant) {
-   'mid-blue' => "py-1.5 px-4 text-sm transition-colors font-medium rounded-lg text-white bg-mid_blue-700 border border-mid_blue-800 hover:bg-mid_blue-800 hover:text-white disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-mid_blue-900 active:bg-mid_blue-900",
-   'dark-blue' => "py-1.5 px-4 text-sm transition-colors font-medium rounded-lg text-white bg-dark_blue-700 border border-dark_blue-800 hover:bg-dark_blue-800 hover:text-white disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-dark_blue-900 active:bg-dark_blue-900",
-   'light-blue' => "py-1.5 px-4 text-sm transition-colors font-medium rounded-lg text-white bg-light_blue-700 border border-light_blue-800 hover:bg-light_blue-800 hover:text-white disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-light_blue-900 active:bg-light_blue-900",
-   
+     
    'red'    => "py-1.5 px-4 text-sm transition-colors font-medium rounded-lg text-gray-100 bg-red-700 border border-red-800 hover:bg-red-800 hover:text-white disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-red-900 active:bg-red-800",
    'green'  => "py-1.5 px-4 text-sm transition-colors font-medium rounded-lg text-gray-100 bg-green-700 border border-green-800 hover:bg-green-800 hover:text-white disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-green-900 active:bg-green-900",
    'yellow' => "py-1.5 px-4 text-sm transition-colors font-medium rounded-lg text-gray-100 bg-yellow-600 border border-yellow-800 hover:bg-yellow-800 hover:text-white disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-yellow-900 active:bg-yellow-900",

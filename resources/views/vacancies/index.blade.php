@@ -21,15 +21,15 @@
    
 
     <div class="container mx-auto px-4 py-8">
-        <h1 class="text-4xl font-bold text-mid_blue-500 mb-6">Job Vacancies</h1>
+        <h1 class="text-4xl font-bold text-midBlue-500 mb-6">Job Vacancies</h1>
 
         <!-- Vacancy Listings -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach($vacancies as $vacancy)
-                <div class="bg-light_blue-200 p-6 rounded-lg shadow-lg hover:shadow-2xl transition ease-in-out duration-300">
-                    <h2 class="text-2xl font-semibold text-dark_blue-500 mb-2">{{ $vacancy->title }}</h2>
-                    <p class="text-mid_blue-500 mb-4">{{ Str::limit($vacancy->description, 150) }}</p>
-                    <a href="{{ route('vacancies.show', $vacancy->id) }}" class="text-dark_blue-600 hover:text-dark_blue-700">Read more</a>
+                <div class="bg-lightBlue-200 p-6 rounded-lg shadow-lg hover:shadow-2xl transition ease-in-out duration-300">
+                    <h2 class="text-2xl font-semibold text-darkBlue-500 mb-2">{{ $vacancy->title }}</h2>
+                    <p class="text-midBlue-500 mb-4">{{ Str::limit($vacancy->description, 150) }}</p>
+                    <a href="{{ route('vacancies.show', $vacancy->id) }}" class="text-darkBlue-600 hover:text-darkBlue-700">Read more</a>
                 </div>
             @endforeach
         </div>
