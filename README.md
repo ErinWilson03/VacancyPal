@@ -14,8 +14,15 @@ Then run the project by executing
 ```
 $ php artisan serve
 ```
-If a 500 Error occurs when running the server, the .env app key may need configured.
-To do this:
-1. Copy `.env.example` to `.env` by running `cp .env.example .env.`
-2. Run `php artisan key:generate` to set the `APP_KEY`.
+The following steps may be needed if there are any errors when trying to serve the app:
+
+1. Install dependencies: `composer install`
+2. Create `.env` file: `cp .env.example .env`
+3. Generate app key: `php artisan key:generate`
+4. Create the database:
+   - For SQLite: `touch database/database.sqlite` // maybe not
+   - Run migrations: `php artisan migrate --seed`
+5. Create storage link: `php artisan storage:link`
+6. Serve the app: `php artisan serve`
+
 
