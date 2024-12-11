@@ -29,7 +29,7 @@ class CompanySeeder extends Seeder
             'email' => 'support@securitysloth.com',
             'phone_number' => '+1-800-555-SAFE',
             'website' => 'https://www.securitysloth.com',
-            "logo" => "logos\securoty_sloth.png"
+            "logo" => "logos\security_sloth.png"
         ]);
 
         $c3 = Company::create([
