@@ -9,6 +9,7 @@
     <!-- Link to Vite's compiled CSS -->
     @vite('resources/css/app.css')
     <script src="https://cdn.tailwindcss.com"></script>
+
     <!-- Vite compiled JS -->
     @vite('resources/js/app.js')
     <script src="//unpkg.com/alpinejs" defer></script>

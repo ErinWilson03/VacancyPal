@@ -12,19 +12,18 @@ class Application extends Model
     
     protected $table = 'applications';
 
-    // The attributes that are mass assignable
     protected $fillable = [
         'name',
         'email',
         'mobile_number',
         'supporting_statement',
         'cv_path',
-        'vacancy_id', // This links to the Vacancy model
+        'vacancy_reference',
     ];
 
-    // Define the relationship with the Vacancy model (one application belongs to one vacancy)
     public function vacancy()
     {
         return $this->belongsTo(Vacancy::class);
     }
+
 }

@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -21,7 +20,11 @@ return new class extends Migration
             $table->text('supporting_statement')->nullable();
             $table->string('cv_path')->nullable();
 
+            // Foreign key for vacancy
             $table->foreignId('vacancy_reference')->constrained()->onDelete('cascade');
+
+            // Foreign key for user (applicant)
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
 
             $table->timestamps();
         });

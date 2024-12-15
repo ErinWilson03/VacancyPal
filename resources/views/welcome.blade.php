@@ -14,7 +14,9 @@
             <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 ">The only job-searching tool you need!</p>
 
             <p class="mb-3 text-md font-normal sm:px-16 lg:px-48 ">Are you ready to find your next career pathway?</p>
-            <p class="mb-8 text-md font-normal text-gray-500 sm:px-16 lg:px-48 "><a href="{{ route('vacancies.index') }}">Start your journey.</a></p>
+            <a href="{{ route('vacancies.index') }}" role="button" class="mb-8 text-md sm:px-16 lg:px-48 text-midBlue-400 font-bold underline hover:text-midBlue-800 transition duration-300 ease-in-out">
+                Start your journey now
+            </a>
         </div>
 
     </section>

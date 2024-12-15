@@ -1,23 +1,34 @@
 <?php
+namespace App\Models;
 
-namespace Database\Factories;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Application>
- */
-class ApplicationFactory extends Factory
+class Application extends Model
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
-    public function definition(): array
+    use HasFactory;
+
+    protected $table = 'applications';
+
+    protected $fillable = [
+        'name',
+        'email',
+        'mobile_number',
+        'supporting_statement',
+        'cv_path',
+        'vacancy_reference',
+        'user_id', // New field for user relationship
+    ];
+
+    // Relationship with Vacancy
+    public function vacancy()
     {
-        return [
-            //
-        ];
+        return $this->belongsTo(Vacancy::class, 'vacancy_reference');
+    }
+
+    // Relationship with User (Applicant)
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

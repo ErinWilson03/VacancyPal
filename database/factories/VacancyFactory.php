@@ -25,13 +25,16 @@ class VacancyFactory extends Factory
      */
     public function definition(): array
     {
+        $applicationOpenDate = $this->faker->dateTimeBetween('now', '2025-12-31');
+        $applicationCloseDate = $this->faker->dateTimeBetween($applicationOpenDate, '2025-12-31');
+
         return [
             'title' => $this->faker->jobTitle(),
             'company_id' => Company::factory(),
             'description' => $this->faker->sentence(),
-            'skills_required' => $this->faker->words(5, true),
-            'application_open_date' => $this->faker->date(),
-            'application_close_date' => $this->faker->date(),
+            'skills_required' => implode(', ', $this->faker->words(5)),
+            'application_open_date' => $applicationOpenDate->format('d-m-Y'),
+            'application_close_date' => $applicationCloseDate->format('d-m-Y'),
             'industry' => $this->faker->randomElement(IndustryEnum::cases())->value,
             'vacancy_type' => $this->faker->randomElement(VacancyTypeEnum::cases())->value,
             'reference_number' => strtoupper(Str::random(10)),
