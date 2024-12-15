@@ -20,8 +20,8 @@ return new class extends Migration {
             $table->string('title', 100);
             $table->string('description', 500)->nullable();
             $table->text('skills_required')->nullable();
-            $table->date('application_open_date')->nullable();
-            $table->date('application_close_date')->nullable();
+            $table->dateTime('application_open_date')->nullable();
+            $table->dateTime('application_close_date')->nullable();
             $table->enum('industry', array_column(IndustryEnum::cases(), 'value'))->nullable();
             $table->enum('vacancy_type', array_column(VacancyTypeEnum::cases(), 'value'))->nullable();
             $table->string('reference_number')->unique();

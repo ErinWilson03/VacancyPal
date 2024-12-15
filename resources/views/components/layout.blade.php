@@ -71,7 +71,7 @@
 <body>
     <header>
         <!-- navbar -->
-        <x-ui.nav class="bg-slate-50">
+        <x-ui.nav class="bg-gray">
 
             <!-- application title -->
             <x-ui.nav.title class="flex items-center">

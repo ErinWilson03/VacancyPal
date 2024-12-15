@@ -33,23 +33,53 @@ class VacancyController
         return $referenceNumber;
     }
 
-    // Display all vacancies
+    public function filterVacancies(Request $request)
+    {
+        // Fetch sorting parameters with default values
+        $sort = $request->input('sort', 'application_close_date');
+        $direction = $request->input('direction', 'desc');
+
+        // Start building query for vacancies
+        $vacancies = Vacancy::with('company');
+
+        // Apply filters if provided
+        if ($request->filled('search')) {
+            $search = $request->input('search');
+            $vacancies = $vacancies->where('title', 'like', '%' . $search . '%');
+        }
+
+        if ($request->filled('vacancy_type') && $request->input('vacancy_type') !== 'all') {
+            $vacancies = $vacancies->where('vacancy_type', $request->input('vacancy_type'));
+        }
+
+        if ($request->filled('industry') && $request->input('industry') !== 'all') {
+            $vacancies = $vacancies->where('industry', $request->input('industry'));
+        }
+
+        // Apply sorting by the chosen field and direction
+        return $vacancies->orderBy($sort, $direction);
+    }
+
     public function index(Request $request)
     {
         // Get the pagination size, defaulting to 10 if not provided
         $size = $request->input('size', 10);
 
-        // Get filtered and sorted vacancies with the 'company' relationship eager-loaded
-        $vacancies = $this->filterVacancies($request)->with('company')->paginate($size)->withQueryString();
+        // Get filtered and sorted vacancies
+        $vacancies = $this->filterVacancies($request)->paginate($size)->withQueryString();
 
-        // Deadline warnings
+        // Add deadline warnings
         $vacancies->each(function ($vacancy) {
             $currentDate = now();
             $applicationDeadline = $vacancy->application_close_date;
-            $vacancy->isDeadlineApproaching = $currentDate->diffInDays($applicationDeadline) <= 3;
+        
+            // Check if the deadline is within 3 days AND in the future
+            $vacancy->isDeadlineApproaching = $currentDate->lt($applicationDeadline) && $currentDate->diffInDays($applicationDeadline) <= 3;
+        
+            // Check if the deadline has already passed
             $vacancy->isDeadlinePassed = $currentDate->greaterThanOrEqualTo($applicationDeadline);
         });
-
+        
         return view('vacancies.index', [
             'vacancies' => $vacancies,
             'search' => $request->input('search', null),
@@ -59,38 +89,7 @@ class VacancyController
             'size' => $size,
         ]);
     }
-
-    private function filterVacancies(Request $request){
-    // Fetching filter parameters from the request
-    $size = $request->input('size', 10);  // Pagination size
-    $sort = $request->input('sort', 'id');  // Default sorting
-    $direction = $request->input('direction', 'asc');  // Sort direction
-
-    // Start the query for vacancies and eager load 'company'
-    $vacancies = Vacancy::with('company');
-
-    // Apply search filter if it exists
-    if ($request->filled('search')) {
-        $search = $request->input('search');
-        $vacancies = $vacancies->where('title', 'like', '%' . $search . '%');
-    }
-
-    // Apply the vacancy type filter only if it's not 'all'
-    if ($request->filled('vacancy_type') && $request->input('vacancy_type') !== 'all') {
-        $vacancies = $vacancies->where('vacancy_type', $request->input('vacancy_type'));
-    }
-
-    // Apply the industry filter only if it's not 'all'
-    if ($request->filled('industry') && $request->input('industry') !== 'all') {
-        $vacancies = $vacancies->where('industry', $request->input('industry'));
-    }
-
-    // Sorting the vacancies based on the user input
-    return $vacancies->orderBy($sort, $direction);
-}
-
-
-
+    
 
     // show the form to create a new vacancy
     public function create()
