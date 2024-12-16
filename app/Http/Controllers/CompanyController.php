@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Company;
 
+// TODO is this controller needed?
 class CompanyController extends Controller
 {
     public function store(Request $request)
@@ -16,14 +17,6 @@ class CompanyController extends Controller
             'website' => 'nullable|url',
             'logo' => ['nullable', 'file', 'mimes:png,jpg', 'max:1024'], // File validation for the logo image
         ]);
-
-           // TODO: take this out if on reflection its not needed
-           //Handle the logo file if present
-        //    if ($request->hasFile('logo')) {
-        //     $file = $request->file('logo');
-        //     $logoPath = $file->store('vacancies/logos', 'public'); // Store the file in the public disk
-        //     $data['logo'] = $logoPath; // Save the file path
-        // }
 
         $company = Company::create($validated);
 

@@ -25,7 +25,13 @@ class DatabaseSeeder extends Seeder
             'role' => Role::ADMIN
         ]);
 
-        // add other default users here
+        User::create([
+            'name' => 'AccountHolder',
+            'email' => 'holder@mail.com',
+            'password' => Hash::make('password'),
+            'role' => Role::ACCOUNT_HOLDER
+        ]);  
+
         User::create([
             'name' => 'Guest',
             'email' => 'guest@mail.com',
@@ -35,7 +41,7 @@ class DatabaseSeeder extends Seeder
 
         User::create([
             'name' => 'Author',
-            'email' => 'company@mail.com',
+            'email' => 'author@mail.com',
             'password' => Hash::make('password'),
             'role' => Role::AUTHOR
         ]);        

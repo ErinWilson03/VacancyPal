@@ -16,12 +16,10 @@
             @endcan
         </x-ui.header>
 
-        {{-- TODO: fix search and filter and sort functionality --}}
         @include('vacancies._search')
 
         <div class="mt-6 flex justify-between items-center">
-            <!-- Vacancies Found Text on the Left -->
-            <p class="text-sm text-gray-500">{{ $vacancyCount }} vacancies found</p>
+            <p class=" ml-4 text-sm text-gray-500">{{ $vacancyCount }} vacancies found</p>
 
             <div class="flex items-center gap-4">
                 <!-- Sort By Dropdown -->

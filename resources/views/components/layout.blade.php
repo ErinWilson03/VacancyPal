@@ -111,7 +111,7 @@
     <!-- page content area -->
     @include('_alert')
 
-    <main class="container mx-auto my-5">
+    <main class="container mx-auto mb-5">
         {{ $slot }}
     </main>
 

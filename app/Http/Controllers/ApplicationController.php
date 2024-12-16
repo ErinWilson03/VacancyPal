@@ -39,9 +39,9 @@ class ApplicationController extends Controller
         $vacancy = Vacancy::findOrFail($vacancyId);
 
         // TODO: reevaluate the auth logic for this
-        // if (!Gate::allows('apply', $vacancy)) {
-        //     return redirect()->route('vacancies.index')->with('warning', 'You are not authorized to apply for this vacancy.');
-        // }
+        if (!Gate::allows('create', $vacancy)) {
+            return redirect()->route('vacancies.index')->with('warning', 'Only registered account holders can apply for vacancies');
+        }
 
         return view('applications.create', ['vacancy' => $vacancy]);
     }

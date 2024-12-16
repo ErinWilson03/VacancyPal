@@ -3,29 +3,34 @@
     <x-ui.card>
         <div class="flex items-center gap-4 m-4">
             {{-- Company Logo and Name --}}
-            <div class="flex items-center gap-4 w-1/2">
+            <div class="flex items-center gap-4 w-1/3">
                 <img src="{{ asset($vacancy->company->logo) }}" alt="{{ $vacancy->company->company_name }} Logo"
-                class="w-24 h-24 rounded-full object-cover shadow-md">
-               
+                    class="w-24 h-24 rounded-full object-cover shadow-md">
+
                 <h2 class="font-semibold text-darkBlue-700 text-xl">
                     {{ $vacancy->company->company_name }}
                 </h2>
             </div>
-    
-            <div class="w-1/2">
-                <h3 class="text-sm text-gray-500">Reference Number: {{ $vacancy->reference_number }}</h3>
-    
-                <div class="inline-flex">
-                    <x-ui.badge class="text-sm text-gray-500" variant="indigo">
-                        {{ $vacancy->industry }}
-                        Industry
-                    </x-ui.badge>
-                    <x-ui.badge class="ml-2 text-sm">{{ $vacancy->vacancy_type }}</x-ui.badge>
+                <div class="w-1/3">
+                    <h3 class="text-sm text-gray-500">Reference Number: {{ $vacancy->reference_number }}</h3>
+
+                    <div class="inline-flex">
+                        <x-ui.badge class="text-sm text-gray-500" variant="indigo">
+                            {{ $vacancy->industry }}
+                            Industry
+                        </x-ui.badge>
+                        <x-ui.badge class="ml-2 text-sm">{{ $vacancy->vacancy_type }}</x-ui.badge>
+                    </div>
                 </div>
-            </div>
+                <div class="w-1/3">
+                    <a href="{{ route('applications.create', $vacancy->id) }}"
+                        class="w-full text-white text-lg font-medium bg-darkBlue hover:bg-darkBlue-200 px-4 py-2 rounded-lg flex items-center justify-center">
+                        Apply for Vacancy
+                    </a>
+                </div>
         </div>
     </x-ui.card>
-    
+
 
     <div class="flex gap-2 mt-2">
         <div class="w-1/2">

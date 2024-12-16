@@ -11,5 +11,6 @@
         </x-ui.header>
 
         @include('vacancies._vacancy-details', ['vacancy' => $vacancy])
+        @include('vacancies._authorised-actions', ['vacancy' => $vacancy])
     </div>
 </x-layout>
