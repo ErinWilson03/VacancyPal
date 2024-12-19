@@ -1,5 +1,4 @@
 <x-ui.card>
-
     <x-ui.card>
         <div class="flex items-center gap-4 m-4">
             {{-- Company Logo and Name --}}

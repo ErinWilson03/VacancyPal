@@ -27,28 +27,24 @@
                     id="sortForm">
                     <label for="sort" class="text-sm text-gray-600">Sort By:</label>
                     <select name="sort" id="sort" class="p-2 border rounded text-sm text-gray-600">
+                        <option value="" {{ !request('sort') ? 'selected' : '' }}>No Sorting</option>
                         <option value="title" {{ request('sort') == 'title' ? 'selected' : '' }}>Title</option>
                         <option value="application_open_date"
                             {{ request('sort') == 'application_open_date' ? 'selected' : '' }}>Opening Date</option>
                         <option value="application_close_date"
                             {{ request('sort') == 'application_close_date' ? 'selected' : '' }}>Closing Date</option>
                     </select>
+
                     <select name="direction" id="sort_direction" class="p-2 border rounded text-sm text-gray-600">
+                        <option value="" {{ !request('direction') ? 'selected' : '' }}>Default Order</option>
                         <option value="asc" {{ request('direction') == 'asc' ? 'selected' : '' }}>Ascending</option>
                         <option value="desc" {{ request('direction') == 'desc' ? 'selected' : '' }}>Descending
                         </option>
                     </select>
+
+                    <button type="submit" role="button"
+                        class="py-0.5 px-2 mx-2 bg-midBlue-500 text-white rounded">Apply</button>
                 </form>
-
-                <script>
-                    document.getElementById('sort').addEventListener('change', function() {
-                        document.getElementById('sortForm').submit();
-                    });
-
-                    document.getElementById('sort_direction').addEventListener('change', function() {
-                        document.getElementById('sortForm').submit();
-                    });
-                </script>
 
                 <!-- Pagination -->
                 @include('vacancies._pagination')
@@ -175,6 +171,6 @@
 
             </div>
 
-            
+
         </div>
 </x-layout>
