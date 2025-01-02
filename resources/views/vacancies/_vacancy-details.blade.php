@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <div class="w-1/3">
-                    <a href="{{ route('applications.create', $vacancy->id) }}"
+                    <a href="{{ route('applications.apply', $vacancy->id) }}"
                         class="w-full text-white text-lg font-medium bg-darkBlue hover:bg-darkBlue-200 px-4 py-2 rounded-lg flex items-center justify-center">
                         Apply for Vacancy
                     </a>
@@ -31,7 +31,7 @@
     </x-ui.card>
 
 
-    <div class="flex gap-2 mt-2">
+    <div class="flex gap-2 mt-4">
         <div class="w-1/2">
             <h3 class="text-2xl font-semibold text-darkBlue-500">Job Description</h3>
             <p class="text-lg text-gray-700 mt-2">{{ $vacancy->description }}</p>
@@ -40,6 +40,18 @@
         <div class="w-1/2">
             <h3 class="text-2xl font-semibold text-darkBlue-500">Skills Required</h3>
             <p class="text-lg text-gray-700 mt-2">{{ $vacancy->skills_required }}</p>
+        </div>
+    </div>
+
+    <div class="flex gap-2 mt-2">
+        <div class="w-1/2">
+            <h3 class="text-2xl font-semibold text-darkBlue-500">Location</h3>
+            <p class="text-lg text-gray-700 mt-1">{{ $vacancy->location }}</p>
+        </div>
+
+        <div class="w-1/2">
+            <h3 class="text-2xl font-semibold text-darkBlue-500">Salary</h3>
+            <p class="text-lg text-gray-700 mt-1">£{{ $vacancy->salary }}</p>
         </div>
     </div>
 

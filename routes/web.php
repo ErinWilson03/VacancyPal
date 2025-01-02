@@ -4,6 +4,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\VacancyController;
+use Illuminate\Support\Facades\Log;
+
+Route::get('/test-log', function () {
+    Log::info('Test log entry at ' . now());
+    return 'Test log written!';
+});
+
 
 // Home, about, and contact pages
 Route::get('/', function () {
@@ -30,7 +37,8 @@ Route::middleware('guest')->group(function () {
 });
 
 // Application routes
-Route::get('/applications/create', [ApplicationController::class, 'create'])->name('applications.create');
+Route::get('/applications/apply/{id}', [ApplicationController::class, 'apply'])->name('applications.apply'); 
+Route::get('/applications/create', [ApplicationController::class, 'create'])->name('applications.create'); 
 Route::get('/applications', [ApplicationController::class, 'index'])->name('applications.index');
 Route::post('/applications', [ApplicationController::class, 'store'])->name('applications.store');
 Route::get('/applications/{id}', [ApplicationController::class, 'show'])->name('applications.show');

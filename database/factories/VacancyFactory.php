@@ -6,6 +6,7 @@ use App\Models\Vacancy;
 use App\Models\Company;
 use App\Enums\VacancyTypeEnum;
 use App\Enums\IndustryEnum;
+use App\Enums\LocationEnum;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
@@ -30,6 +31,8 @@ class VacancyFactory extends Factory
             'skills_required' => implode(', ', $this->faker->words(5)),
             'application_open_date' => $applicationOpenDate->format('Y-m-d H:i:s'),
             'application_close_date' => $applicationCloseDate->format('Y-m-d H:i:s'),
+            'location' => $this->faker->randomElement(LocationEnum::cases())->value,
+            'salary' => $this->faker->numberBetween(20000, 150000),
             'industry' => $this->faker->randomElement(IndustryEnum::cases())->value,
             'vacancy_type' => $this->faker->randomElement(VacancyTypeEnum::cases())->value,
             'reference_number' => strtoupper(Str::random(10)),

@@ -25,7 +25,23 @@
             @endforeach
         </x-ui.form.select>
     </div>
+</div>
+
+<div class="flex gap-4 mt-4">
+    <div class="w-1/2">
+        <x-ui.form.select label="Location" name="location" :options="$locations"
+            value="{{ old('location', $vacancy->location) }}">
+            @foreach($locations as $location)
+                <option value="{{ $location->value }}" {{ old('location') == $location->value ? 'selected' : '' }}>
+                    {{ $location->name }}
+                </option>
+            @endforeach
+        </x-ui.form.select>
+    </div>
     
+    <div class="w-1/2">
+        <x-ui.form.input label="Salary" name="salary" type="text" value={{ old('salary', $vacancy->salary)}} />
+    </div>
 </div>
 
 {{-- Open and Close Dates --}}

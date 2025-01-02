@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use App\Rules\EnumIn;
 use App\Enums\IndustryEnum;
+use App\Enums\LocationEnum;
 use App\Enums\VacancyTypeEnum;
 
 class StoreVacancyRequest extends FormRequest
@@ -17,6 +18,8 @@ class StoreVacancyRequest extends FormRequest
             'skills_required' => ['nullable', 'string'],
             'application_open_date' => ['required', 'date'],
             'application_close_date' => ['required', 'date', 'after:application_open_date'],
+            'location' => ['nullable', new EnumIn(LocationEnum::class)],
+            'salary'=>['nullable', 'decimal'],
             'industry' => ['required', new EnumIn(IndustryEnum::class)],
             'vacancy_type' => ['required', new EnumIn(VacancyTypeEnum::class)],
         ];

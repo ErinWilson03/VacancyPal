@@ -44,6 +44,17 @@ class ApplicationController extends Controller
         return view('applications.create', ['vacancy' => $vacancy]);
     }
 
+    public function apply($vacancyId)
+    {
+        $vacancy = Vacancy::findOrFail($vacancyId);
+
+        if (!Gate::allows('apply', Vacancy::class)) {
+            return redirect()->route('vacancies.index')->with('warning', 'Only registered account holders can apply for vacancies');
+        }
+
+        return view('applications.apply', ['vacancy' => $vacancy]);
+    }
+
     // Store a newly created application
     public function store(Request $request)
     {

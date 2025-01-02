@@ -9,8 +9,6 @@ use App\Http\Requests\StoreVacancyRequest;
 use App\Http\Requests\UpdateVacancyRequest;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
-use app\Enums\VacancyTypeEnum;
-use app\Enums\IndustryEnum;
 
 class VacancyController extends Controller
 {
@@ -85,8 +83,9 @@ class VacancyController extends Controller
         return redirect()->route('vacancies.index')->with('success', 'Vacancy created successfully!');
     }
 
-    public function edit(Vacancy $vacancy)
+    public function edit(int $id)
     {
+        $vacancy = Vacancy::findOrFail($id);
         Gate::authorize('update', $vacancy);
 
         $data = $this->vacancyService->getDataForEditForm($vacancy);

@@ -5,6 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use App\Enums\VacancyTypeEnum;
 use App\Enums\IndustryEnum;
+use App\Enums\LocationEnum;
 
 return new class extends Migration {
     /**
@@ -21,7 +22,9 @@ return new class extends Migration {
             $table->string('description', 500)->nullable();
             $table->text('skills_required')->nullable();
             $table->dateTime('application_open_date')->nullable();
-            $table->dateTime('application_close_date')->nullable();
+            $table->dateTime('application_close_date')->nullable();    
+            $table->decimal('salary', 10, 2)->nullable();
+            $table->enum('location', array_column(LocationEnum::cases(), 'value'))->nullable();
             $table->enum('industry', array_column(IndustryEnum::cases(), 'value'))->nullable();
             $table->enum('vacancy_type', array_column(VacancyTypeEnum::cases(), 'value'))->nullable();
             $table->string('reference_number')->unique();

@@ -40,7 +40,7 @@ class ApplicationPolicy
     /**
      * Determine whether the user can make an application.
      */
-    public function create(User $user): bool
+    public function apply(User $user): bool
     {
         return $user->role == Role::ACCOUNT_HOLDER;
     }

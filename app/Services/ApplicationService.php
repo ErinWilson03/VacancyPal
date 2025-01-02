@@ -50,7 +50,7 @@ class ApplicationService
         Application::create($data);
     }
 
-    // Fetch a specific application details
+    // Fetch a specific application's details
     public function getApplicationDetails($id)
     {
         return Application::with('vacancy')->findOrFail($id);

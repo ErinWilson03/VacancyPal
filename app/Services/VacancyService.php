@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Vacancy;
 use App\Enums\IndustryEnum;
+use App\Enums\LocationEnum;
 use App\Enums\VacancyTypeEnum;
 use App\Models\Company;
 
@@ -80,6 +81,7 @@ class VacancyService
             'vacancy' => new Vacancy(),
             'industries' => IndustryEnum::cases(),
             'vacancyTypes' => VacancyTypeEnum::cases(),
+            'locations' => LocationEnum::cases(),
             'companies' => Company::all()->pluck('company_name', 'id'),
         ];
     }
@@ -90,6 +92,7 @@ class VacancyService
             'vacancy' => $vacancy,
             'industries' => IndustryEnum::cases(),
             'vacancyTypes' => VacancyTypeEnum::cases(),
+            'locations' => LocationEnum::cases(),
             'companies' => Company::all()->pluck('company_name', 'id'),
         ];
     }
